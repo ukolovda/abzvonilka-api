@@ -27,6 +27,8 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.required_ruby_version = '>= 1.8.7'
+
   spec.add_dependency "rest-client"
   spec.add_dependency "json"
   spec.add_development_dependency "bundler", "~> 1.10"
