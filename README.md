@@ -2,25 +2,13 @@
 
 Предназначен для интеграции сервиса Obzvonilka с другими системами (Asterisk и другие).
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'obzvonilka-api'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+## Установка
 
     $ gem install obzvonilka-api
 
 ## Usage
 
-Для интеграции с Asterisk нужно запустить скрипт:
+Для интеграции с Asterisk нужно выполнить команду:
 
     $ OBZVONILKA_API_KEY=1234567890 ruby -e "require 'rubygems'; require 'obzvonilka/api'; Obzvonilka::Asterisk::Voice.send_voices"
 
@@ -35,7 +23,7 @@ Or install it yourself as:
 | ASTERISK_VOICE_PATH_TEMPLATE | Шаблон для формирования имени звукового файла     | "#{FILES_PATH}/%Y/%m/%d/*-%ai.\*"    
 | ASTERISK_CHECK_FILE_COUNT    | Количество старых CDR, обрабатываемых при запуске | 100                                  
 
-В шаблоне для формирования имени звукового файла можно использовать следующие подстановки:
+В шаблоне для формирования имени звукового файла (ASTERISK_VOICE_PATH_TEMPLATE) можно использовать следующие подстановки:
 
 * %ai - ID звонка в Asterisk
 * %as - src звонка
