@@ -1,8 +1,6 @@
 # Obzvonilka::Api
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/obzvonilka/api`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Предназначен для интеграции сервиса Obzvonilka с другими системами (Asterisk и другие).
 
 ## Installation
 
@@ -22,7 +20,21 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Для интеграции с Asterisk нужно запустить скрипт:
+
+    $ OBZVONILKA_API_KEY=1234567890 ruby -e "require 'rubygems'; require 'obzvonilka/api'; Obzvonilka::Asterisk::Voice.send_voices"
+
+Значение параметра OBZVONILKA_API_KEY получаете в настройках профила на вкладке "Организации".
+
+Другие возможные параметры, задаваемые переменными окружения:
+
+|           Название           |         Описание                                  | Значение по умолчанию                |
+|------------------------------|---------------------------------------------------|--------------------------------------|
+| ASTERISK_CDR_CSV_PATH        | Путь к файлу CDR.                                 | /var/log/asterisk/cdr-csv/Master.csv |
+| ASTERISK_VOICE_FILES_DIR     | Путь к звуковым файлам.                           | /var/spool/asterisk/monitor          |
+| ASTERISK_VOICE_PATH_TEMPLATE | Шаблон для формирования имени звукового файла     | "#{FILES_PATH}/%Y/%m/%d/*-%ai.*"     |
+| ASTERISK_CHECK_FILE_COUNT    | Количество старых CDR, обрабатываемых при запуске | 100                                  |
+
 
 ## Development
 
