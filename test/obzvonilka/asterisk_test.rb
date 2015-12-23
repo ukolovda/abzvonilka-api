@@ -21,8 +21,8 @@ class Obzvonilka::AsteriskTest < Minitest::Test
   end
 
   def test_make_custom_mask
-    template = '/records/mind/2xx/outgoing/%H-%M_%Y-%m-%d-211-89659014949.*'
-    assert_equal '/records/mind/2xx/outgoing/11-56_2015-12-23-211-89659014949.*',
+    template = '/records/mind/2xx/outgoing/%H-%M_%Y-%m-%d-*-%ad.*'
+    assert_equal '/records/mind/2xx/outgoing/11-56_2015-12-23-*-89659014949.*',
                  Obzvonilka::Asterisk::Voice.make_voice_file_mask(MASTER_ROW, template)
   end
 
