@@ -1,5 +1,6 @@
 require "obzvonilka/api/version"
 require "obzvonilka/api/voice"
+require "obzvonilka/asterisk/voice"
 
 module Obzvonilka
   module Api
@@ -7,5 +8,8 @@ module Obzvonilka
 
   end
 
+  module Asterisk
+
+  end
 
 end
