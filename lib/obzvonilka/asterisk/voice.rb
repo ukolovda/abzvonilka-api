@@ -15,10 +15,14 @@ module Obzvonilka
       # Amount of old file, then will be checked
       PREV_FILE_CNT = ENV['ASTERISK_CHECK_FILE_COUNT'] || 100
 
+      # DST field name from Master.csv. Use if real DST wroted in other field (i.e. userfield)
+      LOG_FIELD_DST = (ENV['ASTERISK_DST_FIELD_NAME'] || :dst).to_sym
+
       TAIL_COMMAND = "tail -n #{PREV_FILE_CNT} -F '#{LOGS_PATH}'"
 
       HEADINGS = [:accountcode, :src, :dst, :dcontet, :clid, :channel, :dstchannel, :lastapp, :lastdata,
-                  :start, :answer, :end, :duration, :billsec, :disposition, :amaflags, :astid]
+                  :start, :answer, :end, :duration, :billsec, :disposition, :amaflags, :astid, :userfield]
+
 
       def self.send_voices
         read_cdr_rows do |row|
@@ -31,7 +35,7 @@ module Obzvonilka
       end
 
       def self.send_voice(row, file_name)
-        Obzvonilka::Api::Voice.new.put_voice row[:dst], row[:start], row[:end], file_name, row[:astid]
+        Obzvonilka::Api::Voice.new.put_voice row[LOG_FIELD_DST], row[:start], row[:end], file_name, row[:astid]
       end
 
       def self.read_cdr_rows
@@ -74,7 +78,7 @@ module Obzvonilka
             when '%as'
               row[:src]
             when '%ad'
-              row[:dst]
+              row[LOG_FIELD_DST]
             else
               row_date(row).strftime(m)
           end

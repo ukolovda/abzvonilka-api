@@ -21,7 +21,8 @@
 | ASTERISK_CDR_CSV_PATH        | Путь к файлу CDR.                                 | /var/log/asterisk/cdr-csv/Master.csv 
 | ASTERISK_VOICE_FILES_DIR     | Путь к звуковым файлам.                           | /var/spool/asterisk/monitor          
 | ASTERISK_VOICE_PATH_TEMPLATE | Шаблон для формирования имени звукового файла     | "#{FILES_PATH}/%Y/%m/%d/*-%ai.\*"    
-| ASTERISK_CHECK_FILE_COUNT    | Количество старых CDR, обрабатываемых при запуске | 100                                  
+| ASTERISK_CHECK_FILE_COUNT    | Количество старых CDR, обрабатываемых при запуске | 100
+| ASTERISK_DST_FIELD_NAME      | Имя поля, в котором хранится вызываемый номер (например, если реальный номер хранится в userfield |
 
 В шаблоне для формирования имени звукового файла (ASTERISK_VOICE_PATH_TEMPLATE) можно использовать следующие подстановки:
 

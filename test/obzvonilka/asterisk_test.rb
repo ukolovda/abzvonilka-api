@@ -7,7 +7,7 @@ class Obzvonilka::AsteriskTest < Minitest::Test
                 :clid=>'"Виктория Громова" <83912902926>', :dst => '89659014949', :disposition=> 'ANSWERED',
                 :channel=> 'SIP/211-0000ce14', :amaflags=> 'DOCUMENTATION', :dstchannel => 'SIP/3912902926-0000ce15',
                 :astid=> '1450857416.80700', :duration=>"16", :answer=> '2015-12-23 07:57:04', :lastapp => 'Dial',
-                :src=> '83912902926'}
+                :src=> '83912902926', :userfield=>""}
   MASTER_LINE = '"","83912902926","89659014949","outgoingmind","""Виктория Громова"" <83912902926>","SIP/211-0000ce14","SIP/3912902926-0000ce15","Dial","SIP/89659014949@3912902926,,","2015-12-23 07:56:55","2015-12-23 07:57:04","2015-12-23 07:57:13",16,8,"ANSWERED","DOCUMENTATION","1450857416.80700",""'
 
   def test_parse_cdr_row
